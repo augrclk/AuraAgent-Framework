@@ -1,5 +1,9 @@
 # 🤖 AuraAgent Framework
 
+<p align="center">
+  <img src="linkedin_preview.svg" alt="AuraAgent Framework Agile Workflow Animation" width="100%">
+</p>
+
 **AuraAgent Framework**, LLM (Büyük Dil Modelleri) tabanlı otonom yapay zeka ajanlarının bir takım olarak, standart operasyonel kurallarla (Agile/Scrum mantığında) kod ve ürün geliştirilmesini sağlayan bir klasör-yapısı (scaffolding) sistemidir.
 
 Bu iskelet yapı sayesinde, favori yapay zeka aracınıza (Antigravity, Cursor, Claude, ChatGPT vb.) projenizin bulunduğu klasörü vererek, spesifik rollere sahip ajanların birbiriyle sistematik bir şekilde çalışmasını sağlayabilirsiniz.
