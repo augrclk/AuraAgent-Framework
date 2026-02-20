@@ -55,43 +55,60 @@
         <text x="0" y="70" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle" font-weight="600" letter-spacing="1">Team Lead</text>
     </g>
 
-    <!-- Connection Lines (Data Flow) -->
+    <!-- Connection Lines (Data Flow - Circular Agile Workflow) -->
     <g stroke="url(#accent-glow)" stroke-width="2" fill="none" stroke-dasharray="6,4" opacity="0.6">
-        <!-- Top Left -->
-        <path d="M 400 250 Q 250 250 200 150">
+        <!-- Team Lead to Designer (Top Left) -->
+        <path id="path-tl-to-desc" d="M 400 250 Q 300 150 200 150">
             <animate attributeName="stroke-dashoffset" values="20;0" dur="1s" repeatCount="indefinite" />
         </path>
-        <!-- Top Right -->
-        <path d="M 400 250 Q 550 250 600 150">
-            <animate attributeName="stroke-dashoffset" values="20;0" dur="1.2s" repeatCount="indefinite" />
+        
+        <!-- Designer to Frontend (Top Left to Top Right) -->
+        <path id="path-desc-to-front" d="M 200 150 Q 400 100 600 150">
+             <animate attributeName="stroke-dashoffset" values="20;0" dur="1.2s" repeatCount="indefinite" />
         </path>
-        <!-- Bottom Left -->
-        <path d="M 400 250 Q 250 250 200 350">
+
+        <!-- Frontend to Backend/System (Top Right to Bottom Left) -->
+         <path id="path-front-to-back" d="M 600 150 Q 400 250 200 350">
+            <animate attributeName="stroke-dashoffset" values="20;0" dur="1.3s" repeatCount="indefinite" />
+        </path>
+
+        <!-- Backend to Quality/TL review (Bottom Left to Bottom Right) -->
+        <path id="path-back-to-qa" d="M 200 350 Q 400 380 600 350">
+             <animate attributeName="stroke-dashoffset" values="20;0" dur="1.1s" repeatCount="indefinite" />
+        </path>
+
+        <!-- QA/Review back to Team Lead (Bottom Right to Center) -->
+        <path id="path-qa-to-tl" d="M 600 350 Q 500 250 400 250">
             <animate attributeName="stroke-dashoffset" values="20;0" dur="0.9s" repeatCount="indefinite" />
-        </path>
-        <!-- Bottom Right -->
-        <path d="M 400 250 Q 550 250 600 350">
-            <animate attributeName="stroke-dashoffset" values="20;0" dur="1.1s" repeatCount="indefinite" />
         </path>
     </g>
 
-    <!-- Floating Particles (Data Packets) -->
+    <!-- Floating Particles (Data Packets Workflow) -->
     <g fill="#ffffff" filter="url(#glow-light)">
-        <circle r="3">
-            <animateMotion path="M 400 250 Q 250 250 200 150" dur="2s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
+        <!-- TL -> Designer (1st Step) -->
+        <circle r="4" fill="#3b82f6">
+            <animateMotion path="M 400 250 Q 300 150 200 150" dur="2s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="2s" repeatCount="indefinite" />
         </circle>
-        <circle r="3">
-            <animateMotion path="M 600 150 Q 550 250 400 250" dur="2.5s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" />
+        <!-- Designer -> Frontend (2nd Step) -->
+        <circle r="4" fill="#ec4899">
+             <animateMotion path="M 200 150 Q 400 100 600 150" dur="3s" begin="1s" repeatCount="indefinite" />
+             <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3s" begin="1s" repeatCount="indefinite" />
         </circle>
-         <circle r="3">
-            <animateMotion path="M 400 250 Q 250 250 200 350" dur="1.8s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite" />
+         <!-- Frontend -> Backend (3rd Step) -->
+         <circle r="4" fill="#06b6d4">
+            <animateMotion path="M 600 150 Q 400 250 200 350" dur="3s" begin="2.5s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3s" begin="2.5s" repeatCount="indefinite" />
         </circle>
-        <circle r="3">
-            <animateMotion path="M 600 350 Q 550 250 400 250" dur="2.2s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite" />
+        <!-- Backend -> Quality (4th Step) -->
+        <circle r="4" fill="#10b981">
+            <animateMotion path="M 200 350 Q 400 380 600 350" dur="3s" begin="4s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3s" begin="4s" repeatCount="indefinite" />
+        </circle>
+         <!-- Quality -> Team Lead (Release/Review Approval) -->
+        <circle r="4" fill="#f59e0b">
+            <animateMotion path="M 600 350 Q 500 250 400 250" dur="2s" begin="5.5s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="2s" begin="5.5s" repeatCount="indefinite" />
         </circle>
     </g>
 
