@@ -44,6 +44,10 @@ Projenin "Hafıza Merkezi"dir. Bağlam kaybını önler.
 3. Yapay Zekanıza ("Cursor", "Claude", vb.) **"Sen bu projenin Team Lead'isin ("agents/team_lead/role.md"). İşlemlere başla."** diyerek komut verin.
 4. Framework geri kalan tüm organizasyonu, kalite kontrolünü ve süreç yönetimini otonom halledecektir.
 
+<p align="center">
+  <img src="ide_preview.svg" alt="AuraAgent Framework Cursor Mockup" width="100%">
+</p>
+
 ---
 
 ## 👨‍💻 Geliştirici
